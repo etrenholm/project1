@@ -70,10 +70,8 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
     .then(response => response.json())
     .then(data => {
         console.log(data)
+        //generate question based on data
         function generateQuestion(){
-        var question = data['results'][dataIndex]['question']
-        console.log(question)
-        console.log(dataIndex)
         var nextBtn = document.createElement('button')
         var questionEl = document.createElement('h1')
         questionEl.innerHTML = question
