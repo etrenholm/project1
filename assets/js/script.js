@@ -1,6 +1,7 @@
 // global variables vv
 var difficulty = ''
 var category = ''
+var dataIndex = 0
 //easy button
 var easyBtn = document.querySelector('#easy-button');
 easyBtn.addEventListener('click', function(){
@@ -59,13 +60,36 @@ var startBtn = document.querySelector('#start-btn')
 startBtn.addEventListener('click', function(){
     startTrivia()
 })
+var strtBtnCont = document.querySelector('#start-btn-container')
 
 
 function startTrivia(){
 // fetch trivia question data
+
 fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficulty=' + difficulty + '&type=multiple')
     .then(response => response.json())
     .then(data => {
         console.log(data)
+        function generateQuestion(){
+        var question = data['results'][dataIndex]['question']
+        console.log(question)
+        console.log(dataIndex)
+        var nextBtn = document.createElement('button')
+        var questionEl = document.createElement('h1')
+        questionEl.innerHTML = question
+        nextBtn.innerHTML = 'next'
+        strtBtnCont.appendChild(nextBtn)
+        strtBtnCont.appendChild(questionEl)
+        nextBtn.addEventListener('click', function(){
+            strtBtnCont.removeChild(questionEl)
+            strtBtnCont.removeChild(nextBtn)
+            dataIndex = dataIndex + 1
+            generateQuestion()
+            return
     })
-}
+    }
+    generateQuestion()
+    })}
+
+
+
