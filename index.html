@@ -4,11 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <!-- <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" /> -->
     <title>Document</title>
 </head>
+
 <body>
+
+<!-------- START PAGE -------->
+
+    <!-- title section -->
+    <header>
+        <h1>Trivia Project Name</h1>
+    </header>
+
+    <main>
+    <!-- category section -->
+    <div id="category-section">
+        <h2>Choose a category</h2>
+        <button id="animals">animals</button>
+        <button id="celebs">celebrities</button>
+        <button id="film">film</button>
+        <button id="geography">geography</button>
+        <button id="music">music</button>
+        <button id="sports">sports</button>
+        <button id="tv">tv</button>
+        <button id="vehicles">vehicles</button>
+        <button id="random">random</button>
+
+    </div>
+
+     <!-- difficulty section -->
+     <div id="difficulty-section">
+        <h2>Choose a difficulty</h2>
+        <button id="easy-button" class="difficulty-btn btn">easy</button>
+        <button id="medium-button" class="difficulty-btn btn">medium</button>
+        <button id="hard-button" class="difficulty-btn btn">hard</button>
+    </div>
+    <div id="start-btn-container">
+        <button id="start-btn">start</button>
+    </div>
+
+    <!-- buttons -->
+    <div id="buttons-section">
+        <button id="highscores" class="highscores-btn btn"></button>
+        <button id="start" class="start-btn btn"></button>
+    </div>
+
+    </main>
     
     <script src="assets/js/script.js"></script>
 </body>
