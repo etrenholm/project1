@@ -3,6 +3,10 @@ var difficulty = ''
 var category = ''
 var dataIndex = 0
 var points = 100
+var catergorySection = document.querySelector('#category-section')
+var difficultySection = document.querySelector('#difficulty-section')
+var randomSection = document.querySelector('#random-section')
+
 //easy button
 var easyBtn = document.querySelector('#easy-button');
 easyBtn.addEventListener('click', function(){
@@ -56,6 +60,11 @@ vehiclesCat.addEventListener('click', function(){
     category = "28"
 })
 var randomCat = document.querySelector('#random')
+randomCat.addEventListener('click', function(){
+    var randomNumbers = ['27', '26', '11', '22', '12', '21', '14', '28']
+    var randomNumber = randomNumbers[Math.floor(Math.random()*randomNumbers.length)];
+    category = randomNumber
+})
 
 var startBtn = document.querySelector('#start-btn')
 startBtn.addEventListener('click', function(){
@@ -89,8 +98,11 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
         var answer2 = data['results'][dataIndex]['incorrect_answers']['1']
         var answer3 = data['results'][dataIndex]['incorrect_answers']['2']
         var answer4 = data['results'][dataIndex]['correct_answer']
+        catergorySection.classList.add('hide')
+        randomSection.classList.add('hide')
+        difficultySection.classList.add('hide')
 
-        question.classList.add("question-class")
+        
         var answers = [
             {
                 'text': answer1, 
@@ -116,6 +128,7 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
         body.appendChild(questonCont)
 
         var questionEl = document.createElement('h1')
+        questionEl.classList.add("question-class")
         questionEl.innerHTML = question
         questonCont.appendChild(questionEl)
         for(var i =0; i < randomAnswers.length; i++){
@@ -155,5 +168,12 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
     generateQuestion()
 })}
 
+
+fetch('https://api.adviceslip.com/advice')
+    .then(response => response.json())
+    .then(data => {
+        var advice = data['slip']['advice']
+        console.log(advice)
+    })
 
 

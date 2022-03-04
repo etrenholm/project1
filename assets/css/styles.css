@@ -4,6 +4,9 @@
     padding: auto;
 }
 
+.hide{
+    display: none;
+}
 body {
     font-family: 'Roboto', sans-serif;
 }
@@ -93,19 +96,20 @@ h2 {
 }
 /* question card */
 .question-container{
-
+ margin: 0;
+ border: 3px white solid
 }
 
 /* answer buttons */
 
 .answr-btns{
-
+ margin: 0;
 }
 
 /* question */
 
 .question-class{
-    
+ margin: 0;
 }
 
 
