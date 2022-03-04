@@ -1,7 +1,14 @@
+
+/* GLOBAL STYLES */
+
 * {
     box-sizing: border-box;
     margin: auto;
     padding: auto;
+}
+
+.hide {
+    display: none;
 }
 
 body {
@@ -29,6 +36,8 @@ h2 {
     padding-bottom: 20px;
 }
 
+
+
 .category {
     width: 100%;
     height: 100%;
@@ -36,6 +45,7 @@ h2 {
     padding: 25px;
 }
 
+    
 .random-category {
     width: 50%;
     height: 60px;
@@ -83,32 +93,42 @@ h2 {
     font-size: 14px;
 }
 
-.highscores-btn,
-.start-btn {
+.btn {
     color: white;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 500;
     font-size: 16px;
 }
-/* question card */
-.question-container{
 
+.btn:hover {
+    background: rgba(59,130,246);
 }
 
-/* answer buttons */
+/* QUESTION CARD STYLES */
 
-.answr-btns{
-
+.question-container {
+    display: flex;
+    flex-direction: column;
+    width: 552px;
+    background-color: white; 
+    padding: 25px;
+    border-radius: 25px;
 }
 
-/* question */
-
-.question-class{
-    
+.question-class {
+    color: black;
 }
 
+.answr-btns {
+    color: white;
+    background: rgba(79,70,229);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 30px;
+    font-weight: bold;
+}
 
-
-
-
+.answr-btns:hover {
+    background: rgba(124,58,237);
+}
