@@ -2,6 +2,7 @@
 var difficulty = ''
 var category = ''
 var dataIndex = 0
+var points = 100
 //easy button
 var easyBtn = document.querySelector('#easy-button');
 easyBtn.addEventListener('click', function(){
@@ -21,7 +22,7 @@ hardBtn.addEventListener('click', function(){
     console.log(difficulty)
 })
 // categorys
-//animals
+
 var animalCat = document.querySelector('#animals')
 animalCat.addEventListener('click', function(){
     category = "27"
@@ -60,34 +61,99 @@ var startBtn = document.querySelector('#start-btn')
 startBtn.addEventListener('click', function(){
     startTrivia()
 })
-var strtBtnCont = document.querySelector('#start-btn-container')
+var body = document.querySelector('#body')
 
+var questonCont = document.createElement('div')
+
+questonCont.classList.add('question-container')
+
+function resetState(){
+    
+}
 
 function startTrivia(){
+
 // fetch trivia question data
 
 fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficulty=' + difficulty + '&type=multiple')
     .then(response => response.json())
     .then(data => {
-        console.log(data)
+        
         //generate question based on data
         function generateQuestion(){
-        var nextBtn = document.createElement('button')
+            if(dataIndex >= 10){
+                resetState();
+            }
+        var question = data['results'][dataIndex]['question']
+        var answer1 = data['results'][dataIndex]['incorrect_answers']['0']
+        var answer2 = data['results'][dataIndex]['incorrect_answers']['1']
+        var answer3 = data['results'][dataIndex]['incorrect_answers']['2']
+        var answer4 = data['results'][dataIndex]['correct_answer']
+
+        question.classList.add("question-class")
+        var answers = [
+            {
+                'text': answer1, 
+                'correct': 'false'
+             
+            },
+            {
+                'text': answer2, 
+                'correct': 'false'
+            
+            },
+            {
+                'text': answer3, 
+                'correct': 'false'
+       
+            },
+            {
+                'text': answer4, 
+                'correct': 'true'
+            }
+            ]
+        var randomAnswers = answers.sort((a,b) => 0.5 - Math.random())
+        body.appendChild(questonCont)
+
         var questionEl = document.createElement('h1')
         questionEl.innerHTML = question
-        nextBtn.innerHTML = 'next'
-        strtBtnCont.appendChild(nextBtn)
-        strtBtnCont.appendChild(questionEl)
-        nextBtn.addEventListener('click', function(){
-            strtBtnCont.removeChild(questionEl)
-            strtBtnCont.removeChild(nextBtn)
-            dataIndex = dataIndex + 1
-            generateQuestion()
-            return
-    })
-    }
+        questonCont.appendChild(questionEl)
+        for(var i =0; i < randomAnswers.length; i++){
+            var answerEl = document.createElement('button')
+            answerEl.classList.add('answr-btns')
+            var correct = randomAnswers[i]['correct']
+            questonCont.appendChild(answerEl)
+            answerEl.innerText = randomAnswers[i]['text']
+           
+                if(correct === 'true'){
+                answerEl.addEventListener('click', function(){
+                questonCont.removeChild(questionEl)
+                dataIndex = dataIndex + 1
+                window.alert('correct')               
+                while (questonCont.firstChild){
+                    questonCont.firstChild.remove()
+                }
+                generateQuestion() 
+                return
+                })}
+                else{
+                answerEl.addEventListener('click', function(){
+                questonCont.removeChild(questionEl)
+                dataIndex = dataIndex + 1
+                points = points -10
+                console.log(points)
+                window.alert('wrong')
+                while (questonCont.firstChild){
+                    questonCont.firstChild.remove()
+                }
+                generateQuestion()
+                return
+                })}    
+        }
+        }
+    
     generateQuestion()
-    })}
+})}
 
 
 
