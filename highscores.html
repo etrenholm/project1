@@ -6,11 +6,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700;900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Document</title>
 </head>
-<body>
+
+<body class="w-full h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-black">
+
+<!-------- START PAGE -------->
+<div class="container">
+
+    <!-- title section -->
+    <header>
+        <h1>Trivia Project Name</h1>
+    </header>
+
+    <main>
+    <!-- category section -->
+    <div id="category-section">
+        <h2>Results</h2>
+
+        <div class="grid grid-cols-3 gap-5 md:grid-cols-4 md:gap-5">
+            <div id="animals" class="category rounded-2xl">
+                <img src="assets/images/TriviaIcons-01.svg" alt="lion">
+                <p>Animals</p>
+            </div>
+
+            <div id="celebs" class="category rounded-2xl">
+                <img src="assets/images/TriviaIcons-02.svg" alt="trophy">
+                <p>Celebrities</p>
+            </div>
+
+            <div id="film" class="category rounded-2xl">
+                <img src="assets/images/TriviaIcons-03.svg" alt="clapperboard">
+                <p>Film</p>
+            </div>
+
+            <div id="geography" class="category rounded-2xl">
+                <img src="assets/images/TriviaIcons-04.svg" alt="globe">
+                <p>Geography</p>
+            </div>
+
+            <div id="music" class="category rounded-2xl">
+                <img src="assets/images/TriviaIcons-05.svg" alt="guitar">
+                <p>Music</p>
+            </div>
+
+            <div id="sports" class="category rounded-xl">
+                <img src="assets/images/TriviaIcons-06.svg" alt="basketball and net">
+                <p>Sports</p>
+            </div>
+
+            <div id="tv" class="category rounded-2xl">
+                <img src="assets/images/TriviaIcons-07.svg" alt="television set">
+                <p>Television</p>
+            </div>
+
+            <div id="vehicles" class="category rounded-2xl">
+                <img src="assets/images/TriviaIcons-08.svg" alt="steering wheel">
+                <p>Vehicles</p>
+            </div>
+        </div>
     
-    <script src="assets/js/highscorescript.js"></script>
+        <div id="random" class="random-category space-x-2 rounded-2xl">
+                <i class="fa-solid fa-shuffle inline"></i>
+                <p class="inline">Random category</p>
+        </div>
+
+    </div>
+
+
+     <!-- difficulty section -->
+     <div id="difficulty-section" class="difficulty-section rounded-2xl">
+        <h2>Choose a difficulty</h2>
+        <div class="difficulty-button grid grid-cols-3 gap-6">
+            <button id="easy-button" class="difficulty-btn bg-purple-600 rounded-full p-2">easy</button>
+            <button id="medium-button" class="difficulty-btn bg-indigo-600 rounded-full p-2">medium</button>
+            <button id="hard-button" class="difficulty-btn bg-blue-500 rounded-full p-2">hard</button>
+        </div>
+    </div>
+
+    <!-- buttons -->
+    <div id="start-btn-container" class="grid grid-cols-2 gap-5 my-6">
+        <button id="startover" class="highscores-btn border-2 border-blue-500 hover:bg-blue-500 rounded-full p-5">Start Over</button>
+        <button id="start-btn" class="start-btn bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-500 rounded-full p-5">Start</button>
+    </div>
+
+    </main>
+
+</div>
+
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
