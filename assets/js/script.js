@@ -6,6 +6,8 @@ var points = 100
 var categorySection = document.querySelector("#category-section")
 var randomSection = document.querySelector("#random")
 var difficultySection = document.querySelector("#difficulty-section")
+var startPageBtnContainer = document.querySelector("#startpage-btn-container")
+var quizPageBtnContainer = document.querySelector("#quizpage-btn-container")
 
 //easy button
 var easyBtn = document.querySelector('#easy-button');
@@ -96,6 +98,7 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
         categorySection.classList.add("hide")
         randomSection.classList.add("hide")
         difficultySection.classList.add("hide")
+        startPageBtnContainer.classList.add("hide")
 
         
         var answers = [
