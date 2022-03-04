@@ -16,7 +16,7 @@ body {
 }
 
 .container {
-    max-width: fit-content;
+    max-width: 660px;
     padding: 50px;
 }
 
@@ -34,6 +34,12 @@ h2 {
     font-weight: bold;
     text-align: center;
     padding-bottom: 20px;
+}
+
+h3 {
+    color: white;
+    text-align: center;
+    font-weight: bold;
 }
 
 /* CATEGORY SELECTION STYLES */
@@ -163,3 +169,5 @@ h2 {
 .difficulty-unselected {
     opacity: 70%
 }
+
+/* HIGHSCORES STYLES */
