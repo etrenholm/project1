@@ -1,5 +1,93 @@
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    margin: auto;
+    padding: auto;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    max-width: fit-content;
+    padding: 50px;
+}
+
+h1 {
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+h2 {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.category {
+    width: 100%;
+    height: 100%;
+    background-color: white; 
+    padding: 25px;
+}
+
+.random-category {
+    width: 50%;
+    height: 60px;
+    background-color: white; 
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.random-category:hover,
+.category:hover {
+    opacity: 90%;
+}
+
+.category img {
+    width: 65px;
+    height: 65px;
+}
+
+.random-category p,
+.category p {
+    font-weight: 600;
+    text-align: center;
+    font-size: 15px;
+}
+
+.category p {
+    padding-top: 15px;
+}
+
+.difficulty-section {
+    background-color: white;
+    width: 100%;
+    padding: 30px;
+}
+
+.difficulty-section h2 {
+    color: black;
+}
+
+.difficulty-btn {
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.highscores-btn,
+.start-btn {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 16px;
 }
