@@ -62,6 +62,7 @@ startBtn.addEventListener('click', function(){
     startTrivia()
 })
 var body = document.querySelector('#body')
+
 var questonCont = document.createElement('div')
 
 questonCont.classList.add('question-container')
@@ -89,6 +90,7 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
         var answer3 = data['results'][dataIndex]['incorrect_answers']['2']
         var answer4 = data['results'][dataIndex]['correct_answer']
 
+        question.classList.add("question-class")
         var answers = [
             {
                 'text': answer1, 
@@ -118,6 +120,7 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
         questonCont.appendChild(questionEl)
         for(var i =0; i < randomAnswers.length; i++){
             var answerEl = document.createElement('button')
+            answerEl.classList.add('answr-btns')
             var correct = randomAnswers[i]['correct']
             questonCont.appendChild(answerEl)
             answerEl.innerText = randomAnswers[i]['text']
