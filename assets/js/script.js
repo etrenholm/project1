@@ -2,16 +2,19 @@
 var difficulty = ''
 var category = ''
 var dataIndex = 0
-var points = 100
-var catergorySection = document.querySelector('#category-section')
-var difficultySection = document.querySelector('#difficulty-section')
-var randomSection = document.querySelector('#random-section')
+var points = 0
+var categorySection = document.querySelector("#category-section")
+var randomSection = document.querySelector("#random")
+var difficultySection = document.querySelector("#difficulty-section")
+var startPageBtnContainer = document.querySelector("#startpage-btn-container")
+var quizPageBtnContainer = document.querySelector("#quizpage-btn-container")
 
 //easy button
 var easyBtn = document.querySelector('#easy-button');
 easyBtn.addEventListener('click', function(){
     difficulty = "easy"
     console.log(difficulty)
+    console.log(category)
 })
 //medium button
 var medBtn = document.querySelector('#medium-button');
@@ -76,9 +79,6 @@ var questonCont = document.createElement('div')
 
 questonCont.classList.add('question-container')
 
-function resetState(){
-    
-}
 
 function startTrivia(){
 
@@ -87,45 +87,30 @@ function startTrivia(){
 fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficulty=' + difficulty + '&type=multiple')
     .then(response => response.json())
     .then(data => {
+        console.log(data)
         
         //generate question based on data
-        function generateQuestion(){
-            if(dataIndex >= 10){
-                resetState();
-            }
+        function generateQuestion(){      
         var question = data['results'][dataIndex]['question']
         var answer1 = data['results'][dataIndex]['incorrect_answers']['0']
         var answer2 = data['results'][dataIndex]['incorrect_answers']['1']
         var answer3 = data['results'][dataIndex]['incorrect_answers']['2']
         var answer4 = data['results'][dataIndex]['correct_answer']
-        catergorySection.classList.add('hide')
-        randomSection.classList.add('hide')
-        difficultySection.classList.add('hide')
+        categorySection.classList.add("hide")
+        randomSection.classList.add("hide")
+        difficultySection.classList.add("hide")
+        startPageBtnContainer.classList.add("hide")
 
         
         var answers = [
-            {
-                'text': answer1, 
-                'correct': 'false'
-             
-            },
-            {
-                'text': answer2, 
-                'correct': 'false'
-            
-            },
-            {
-                'text': answer3, 
-                'correct': 'false'
-       
-            },
-            {
-                'text': answer4, 
-                'correct': 'true'
-            }
+            {'text': answer1,'correct': 'false'},
+            {'text': answer2,'correct': 'false'},
+            {'text': answer3,'correct': 'false'},
+            {'text': answer4,'correct': 'true'}
             ]
         var randomAnswers = answers.sort((a,b) => 0.5 - Math.random())
-        body.appendChild(questonCont)
+        var containerEl = document.querySelector(".container")
+        containerEl.appendChild(questonCont)
 
         var questionEl = document.createElement('h1')
         questionEl.classList.add("question-class")
@@ -136,11 +121,12 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
             answerEl.classList.add('answr-btns')
             var correct = randomAnswers[i]['correct']
             questonCont.appendChild(answerEl)
-            answerEl.innerText = randomAnswers[i]['text']
+            answerEl.innerHTML = randomAnswers[i]['text']
            
                 if(correct === 'true'){
                 answerEl.addEventListener('click', function(){
                 questonCont.removeChild(questionEl)
+                points = points + 1
                 dataIndex = dataIndex + 1
                 window.alert('correct')               
                 while (questonCont.firstChild){
@@ -149,19 +135,74 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
                 generateQuestion() 
                 return
                 })}
+
+                else if(dataIndex === 49) {
+                    var user = window.prompt('Congratulations! You have reached the maximum score of' + points + 'Please enter your name:')
+                        var playerScore = {
+                            Name: user,
+                            Score: points
+                        }
+                        localStorage.setItem('playerScore', JSON.stringify(playerScore))
+                }
                 else{
+                function closeModal(){
+                    if (backdrop) {
+                        backdrop.remove
+                    }
+                }
                 answerEl.addEventListener('click', function(){
+                    fetch('https://api.adviceslip.com/advice')
+                    .then(response => response.json())
+                    .then(data => {
+                        var advice = data['slip']['advice']
+                        var user = ''
+                
+                    //cover page in backdrop
+                    var backdrop = document.createElement('div');
+                    backdrop.classList.add('backdrop')
+                    backdrop.addEventListener('click', closeModal)
+                    document.body.appendChild(backdrop)
+                    
+                    //create modal container
+                    var modal = document.createElement('div')
+                    modal.classList.add('modal')
+
+                    //modal text
+                    var modalHead = document.createElement('h1')
+                    modalHead.textContent = advice + '\nYour score was: ' + score + '\nEnter your name: '
+                    modal.appendChild(modalHead)
+
+                    //input for user name
+                    var modalInputContainer = document.createElement('div')
+                    modalInputContainer.classList.add('modal-input')
+                    modal.appendChild(modalInputContainer)
+
+                    var modalInputArea = document.createElement('textarea')
+                    modalInputArea.addEventListener('input', function(){
+                        user = modalInputArea.value
+                    })
+                    modalInputContainer.appendChild(modalInputArea)
+
+                    //modal actions ie - confirm / cancel
+                    var modalActionsContainer = document.createElement('div')
+                    modalActionsContainer.classList.add('modal-actions')
+                    modal.appendChild(modalActionsContainer)
+
+                    var cancelButton = document.createElement('button')
+                    cancelButton.setAttribute('type', 'button')
+                    cancelButton.classList.add('btn-cancel')
+
+
+                    //locally store data
+                    var playerScore = {Name: user, Score: points}
+                    localStorage.setItem('playerScore', JSON.stringify(playerScore))
+
+
+
                 questonCont.removeChild(questionEl)
                 dataIndex = dataIndex + 1
-                points = points -10
-                console.log(points)
-                window.alert('wrong')
-                while (questonCont.firstChild){
-                    questonCont.firstChild.remove()
-                }
-                generateQuestion()
                 return
-                })}    
+                })})}    
         }
         }
     
@@ -169,11 +210,6 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
 })}
 
 
-fetch('https://api.adviceslip.com/advice')
-    .then(response => response.json())
-    .then(data => {
-        var advice = data['slip']['advice']
-        console.log(advice)
-    })
+
 
 
