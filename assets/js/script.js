@@ -138,14 +138,17 @@ randomCat.addEventListener('click', function(){
 // start button
 var startBtn = document.querySelector('#start-btn')
 startBtn.addEventListener('click', function(){
+    if(category === '' || difficulty === ''){
+        console.log("worked")
+    }else{
     startTrivia()
+    }
 })
 
 var body = document.querySelector('#body')
-var questonCont = document.createElement('div')
+var questionCont = document.createElement('div')
 
-questonCont.classList.add('question-container')
-
+questionCont.classList.add('question-container')
 
 
 // start trivia
@@ -186,30 +189,30 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
 
         // append question to page
         var containerEl = document.querySelector(".container")
-        containerEl.appendChild(questonCont)
+        containerEl.appendChild(questionCont)
 
         var questionEl = document.createElement('h1')
         questionEl.classList.add("question-class")
         questionEl.innerHTML = question
-        questonCont.appendChild(questionEl)
+        questionCont.appendChild(questionEl)
 
         // loop through answers to appened them to question card
         for(var i =0; i < randomAnswers.length; i++){
             var answerEl = document.createElement('button')
             answerEl.classList.add('answr-btns')
             var correct = randomAnswers[i]['correct']
-            questonCont.appendChild(answerEl)
+            questionCont.appendChild(answerEl)
             answerEl.innerHTML = randomAnswers[i]['text']
 
             // check for if the selected answer is true
             if(correct === 'true'){
                 answerEl.addEventListener('click', function(){
-                questonCont.removeChild(questionEl)
+                questionCont.removeChild(questionEl)
                 points = points + 10
                 dataIndex = dataIndex + 1
                 
-                while (questonCont.firstChild){
-                    questonCont.firstChild.remove()
+                while (questionCont.firstChild){
+                    questionCont.firstChild.remove()
                 }
 
                 generateQuestion() 
@@ -318,7 +321,7 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
                 modalActionsContainer.appendChild(confirmButton)
                 body.appendChild(modal)
 
-            questonCont.removeChild(questionEl)
+            questionCont.removeChild(questionEl)
             dataIndex = dataIndex + 1
             return;
             })})}    
