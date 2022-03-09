@@ -15,10 +15,10 @@ returnButton.addEventListener('click', function(){
 function displayScores(){
     for (var i = 0; i < localStorage.length; i++) {
         var key = localStorage.key(i);
-        var name = JSON.parse(localStorage.getItem(key))
-        var user = name.Name
-        var score = name.Score
-        var diff = name.Type
+        var obj = JSON.parse(localStorage.getItem(key))
+        var user = obj.Name
+        var score = obj.Score
+        var diff = obj.Type
         var scoreEl = document.createElement('li')
         scoreEl.textContent = user + ': ' + score
         if(diff === 'easy'){
