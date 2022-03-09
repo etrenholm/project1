@@ -174,7 +174,7 @@ h4 {
 /* Not Selected */
 .category-unselected,
 .difficulty-unselected {
-    opacity: 70%
+    opacity: 50%
 }
 
 /* HIGHSCORES STYLES */

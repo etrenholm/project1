@@ -8,6 +8,8 @@ var randomSection = document.querySelector("#random")
 var difficultySection = document.querySelector("#difficulty-section")
 var startPageBtnContainer = document.querySelector("#startpage-btn-container")
 var quizPageBtnContainer = document.querySelector("#quizpage-btn-container")
+var allCategory = document.querySelectorAll('.cat-btn')
+
 
 var backdrop
 var modal
@@ -19,62 +21,117 @@ var savedScore = JSON.parse(localStorage.getItem("playerScoreObj")) || [];
 var easyBtn = document.querySelector('#easy-button');
 easyBtn.addEventListener('click', function(){
     difficulty = "easy"
-    console.log(difficulty)
-    console.log(category)
+    easyBtn.classList.remove('category-unselected')
+    easyBtn.classList.add('category-selected') 
+    medBtn.classList.add('category-unselected')
+    hardBtn.classList.add('category-unselected')
 })
 
 // medium button
 var medBtn = document.querySelector('#medium-button');
 medBtn.addEventListener('click', function(){
     difficulty = "medium"
-    console.log(difficulty)
+    medBtn.classList.remove('category-unselected')
+    easyBtn.classList.add('category-unselected') 
+    medBtn.classList.add('category-selected')
+    hardBtn.classList.add('category-unselected')
+    
 })
 
 // hard button
 var hardBtn = document.querySelector('#hard-button');
 hardBtn.addEventListener('click', function(){
     difficulty = "hard"
-    console.log(difficulty)
+    hardBtn.classList.remove('category-unselected')
+    easyBtn.classList.add('category-unselected') 
+    medBtn.classList.add('category-unselected')
+    hardBtn.classList.add('category-selected')
+    
 })
 
 // category buttons
 var animalCat = document.querySelector('#animals')
 animalCat.addEventListener('click', function(){
     category = "27"
+    for (var i = 0; i < allCategory.length; i++) {
+       allCategory[i].classList.add('category-unselected')
+      }
+    animalCat.classList.remove('category-unselected')
+    animalCat.classList.add('category-selected')
 })
 var celebCat = document.querySelector('#celebs')
 celebCat.addEventListener('click', function(){
     category = "26"
+    for (var i = 0; i < allCategory.length; i++) {
+        allCategory[i].classList.add('category-unselected')
+       }
+     celebCat.classList.remove('category-unselected')
+     celebCat.classList.add('category-selected')
 })
 var filmCat = document.querySelector('#film')
 filmCat.addEventListener('click', function(){
     category = "11"
+    for (var i = 0; i < allCategory.length; i++) {
+        allCategory[i].classList.add('category-unselected')
+       }
+     filmCat.classList.remove('category-unselected')
+     filmCat.classList.add('category-selected')
 })
 var geoCat = document.querySelector('#geography')
 geoCat.addEventListener('click', function(){
     category = "22"
+    for (var i = 0; i < allCategory.length; i++) {
+        allCategory[i].classList.add('category-unselected')
+       }
+     geoCat.classList.remove('category-unselected')
+     geoCat.classList.add('category-selected')
 })
 var musicCat = document.querySelector('#music')
 musicCat.addEventListener('click', function(){
     category = "12"
+    for (var i = 0; i < allCategory.length; i++) {
+        allCategory[i].classList.add('category-unselected')
+       }
+     musicCat.classList.remove('category-unselected')
+     musicCat.classList.add('category-selected')
 })
 var sportsCat = document.querySelector('#sports')
 sportsCat.addEventListener('click', function(){
     category = "21"
+    for (var i = 0; i < allCategory.length; i++) {
+        allCategory[i].classList.add('category-unselected')
+       }
+     sportsCat.classList.remove('category-unselected')
+     sportsCat.classList.add('category-selected')
 })
 var tvCat = document.querySelector('#tv')
 tvCat.addEventListener('click', function(){
     category = "14"
+    for (var i = 0; i < allCategory.length; i++) {
+        allCategory[i].classList.add('category-unselected')
+       }
+     tvCat.classList.remove('category-unselected')
+     tvCat.classList.add('category-selected')
 })
 var vehiclesCat = document.querySelector('#vehicles')
 vehiclesCat.addEventListener('click', function(){
     category = "28"
+    for (var i = 0; i < allCategory.length; i++) {
+        allCategory[i].classList.add('category-unselected')
+       }
+     vehiclesCat.classList.remove('category-unselected')
+     vehiclesCat.classList.add('category-selected')
 })
 var randomCat = document.querySelector('#random')
 randomCat.addEventListener('click', function(){
     var randomNumbers = ['27', '26', '11', '22', '12', '21', '14', '28']
     var randomNumber = randomNumbers[Math.floor(Math.random()*randomNumbers.length)];
     category = randomNumber
+    for (var i = 0; i < allCategory.length; i++) {
+        allCategory[i].classList.add('category-unselected')
+       }
+     randomCat.classList.remove('category-unselected')
+     randomCat.classList.add('category-selected')
 })
 
 
