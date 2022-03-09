@@ -47,12 +47,15 @@ Project was created using:
 * Style quiz functionality with CSS
 
 ### STEP 6. - CREATE HIGHSCORES PAGE
-* 
+* Use HTML and CSS to create framework for highscore page
+* Set score data in local storage
+* Get score data from local storage and display on highscore page
 
-### STEP 7. - TESTING
-* Tested functionality in GitHub pages
+### STEP 7. - TEST AND DEPLOY
+* Work out any bugs and enhancements before deployment of Version 1.0
 * Refactor HTML, CSS, and JAVASCRIPT
-* Created Issues for enhancements and creation of Version 2.0
+* Deploy and test Version 1.0 functionality in GitHub pages
+* Create Issues for enhancements for Version 2.0
 
 ### STEP 8. - VERSION 2.0
 * Add various enhancements to style and functionality
