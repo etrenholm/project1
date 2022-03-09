@@ -22,19 +22,26 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
     color: white;
     font-weight: bold;
     text-align: center;
 }
 
 h1 {
-    font-size: 40px;
+    font-size: 44px;
     padding-bottom: 10px;
 }
 
 h2 {
     font-size: 22px;
+    padding-bottom: 20px;
+}
+
+h4 {
+    color: black;
+    font-size: 20px;
     padding-bottom: 20px;
 }
 
@@ -174,73 +181,83 @@ li {
     padding-top: 10px;
 }
 
-/* MODAL STYLE */
+
+/* MODAL STYLES */
+
 .modal {
     position: fixed;
     z-index: 200;
-    top: 40%;
-    left: 40%;
-    width: 20%;
+    top: 25%;
+    left: 35%;
+    width: 30%;
     background: white;
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
-    padding: 1rem;
-  }
-  
-  .modal h1 {
-    color: #521751;
+    padding: 25px;
+    border-radius: 30px;
+}
+
+.modal h1 {
+    color: rgba(79,70,229);
+    font-size: 24px;
+}
+
+.modal-input {
     margin: 0.5rem 0;
-    font-size: 1.2rem;
-  }
-  
-  .modal-input {
-    margin: 0.5rem 0;
-  }
-  
-  .modal-input textarea {
-    background-color: grey;
+}
+
+.modal-input textarea {
+    border: solid gray 1px;
     opacity: 70%;
     width: 100%;
     font: inherit;
     resize: none;
-  }
-  
-  .modal-input textarea:focus {
+}
+
+.modal-input textarea:focus {
     outline: none;
     background: #ffdbfe;
-    border-color: #521751;
-  }
-  
-  .modal-actions {
-    text-align: right;
-  }
-  
-  button.btn-cancel {
-    border-color: red;
-    color: red;
-    border-radius: 5%;
-    margin: 5px;
-  }
-  
-  button.btn-cancel:hover,
-  button.btn-cancel:active {
+    border-color: rgba(124,58,237);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.btn-cancel {
     color: white;
-    background: red;
-  }
-  
-  button.btn-confirm {
-    border-color: green;
-    color: green;
-    border-radius: 5%;
-    margin: 5px;
-  }
-  
-  button.btn-confirm:hover,
-  button.btn-confirm:active {
+    font-weight: 700;
+    font-size: 14px;
+    background: rgba(59,130,246);
+    padding: 10px;
+    width: 50%;
+    border-radius: 30px;
+
+}
+
+.btn-confirm {
     color: white;
-    background: green;
-  }
-  
-  .backdrop {
+    font-weight: 700;
+    font-size: 14px;
+    background: rgba(124,58,237);
+    padding: 10px;
+    width: 50%;
+    border-radius: 30px;
+    }
+
+.btn-cancel:hover,
+.btn-cancel:active {
+background: red;
+}
+
+.btn-confirm:hover,
+.btn-confirm:active {
+background: green;
+}
+
+.backdrop {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -248,4 +265,4 @@ li {
     left: 0;
     background: rgba(0, 0, 0, 0.5);
     z-index: 100;
-  }
+}
