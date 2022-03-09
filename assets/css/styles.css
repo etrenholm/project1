@@ -248,13 +248,11 @@ li {
     }
 
 .btn-cancel:hover,
-.btn-cancel:active {
-background: red;
-}
-
+.btn-cancel:active,
 .btn-confirm:hover,
 .btn-confirm:active {
-background: green;
+    transform: scale(1.07);
+    transition: all 0.25s ease-in-out;
 }
 
 .backdrop {
