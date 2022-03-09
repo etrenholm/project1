@@ -1,41 +1,39 @@
-//Global variables 
+// Global Variables
 var returnButton = document.querySelector('#start-btn')
 var easyList = document.querySelector('#easy-list')
 var medList = document.querySelector('#med-list')
 var hardList = document.querySelector('#hard-list')
 
-
-//return to home page when clicked
+// When button is clicked, return to homepage
 returnButton.addEventListener('click', function(){
     location.href = './index.html'
 })
 
-//function to display score upon load using local storage
+// Get saved scores from local storage
+var savedScore = JSON.parse(localStorage.getItem("playerScoreObj")) || [];
 
+// Scores display
 function displayScores(){
-    for (var i = 0; i < localStorage.length; i++) {
-        var key = localStorage.key(i);
-        var name = JSON.parse(localStorage.getItem(key))
-        var user = name.Name
-        var score = name.Score
-        var diff = name.Type
+
+    for (var i = 0; i < savedScore.length; i++) {
+
+        var user = savedScore[i].name
+        var score = savedScore[i].score
+        var difficulty = savedScore[i].type
+
         var scoreEl = document.createElement('li')
         scoreEl.textContent = user + ': ' + score
-        if(diff === 'easy'){
 
+        if(difficulty === 'easy'){
             easyList.appendChild(scoreEl)
-
-
         }
-        else if (diff === 'medium'){
 
+        else if (difficulty === 'medium'){
             medList.appendChild(scoreEl)
-
         }
+
         else{
-
             hardList.appendChild(scoreEl)
-
         }
        
     }

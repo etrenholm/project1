@@ -11,27 +11,32 @@ var quizPageBtnContainer = document.querySelector("#quizpage-btn-container")
 var backdrop
 var modal
 
-//easy button
+var savedScore = JSON.parse(localStorage.getItem("playerScoreObj")) || [];
+
+
+// easy button
 var easyBtn = document.querySelector('#easy-button');
 easyBtn.addEventListener('click', function(){
     difficulty = "easy"
     console.log(difficulty)
     console.log(category)
 })
-//medium button
+
+// medium button
 var medBtn = document.querySelector('#medium-button');
 medBtn.addEventListener('click', function(){
     difficulty = "medium"
     console.log(difficulty)
 })
-//hard button
+
+// hard button
 var hardBtn = document.querySelector('#hard-button');
 hardBtn.addEventListener('click', function(){
     difficulty = "hard"
     console.log(difficulty)
 })
-// categorys
 
+// category buttons
 var animalCat = document.querySelector('#animals')
 animalCat.addEventListener('click', function(){
     category = "27"
@@ -72,99 +77,101 @@ randomCat.addEventListener('click', function(){
 })
 
 
-//start button
+// start button
 var startBtn = document.querySelector('#start-btn')
 startBtn.addEventListener('click', function(){
     startTrivia()
 })
-var body = document.querySelector('#body')
 
+var body = document.querySelector('#body')
 var questonCont = document.createElement('div')
 
 questonCont.classList.add('question-container')
 
 
 
-//start trivia
+// start trivia
 function startTrivia(){
 
 // fetch trivia question data
-
 fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficulty=' + difficulty + '&type=multiple')
     .then(response => response.json())
     .then(data => {
         console.log(data)
         
-        //generate question based on data
+        // generate question based on API data
         function generateQuestion(){  
-            //define questions and answers based on API data    
-        var question = data['results'][dataIndex]['question']
-        var answer1 = data['results'][dataIndex]['incorrect_answers']['0']
-        var answer2 = data['results'][dataIndex]['incorrect_answers']['1']
-        var answer3 = data['results'][dataIndex]['incorrect_answers']['2']
-        var answer4 = data['results'][dataIndex]['correct_answer']
-        
-            //hide unneeded sections at start of quiz, like category buttons
-        categorySection.classList.add("hide")
-        randomSection.classList.add("hide")
-        difficultySection.classList.add("hide")
-        startPageBtnContainer.classList.add("hide")
 
-            //array of objects to add data to answers to determine if they're right or wrong
-        
-        var answers = [
-            {'text': answer1,'correct': 'false'},
-            {'text': answer2,'correct': 'false'},
-            {'text': answer3,'correct': 'false'},
-            {'text': answer4,'correct': 'true'}
-            ]
+            // define questions and answers based on API data    
+            var question = data['results'][dataIndex]['question']
+            var answer1 = data['results'][dataIndex]['incorrect_answers']['0']
+            var answer2 = data['results'][dataIndex]['incorrect_answers']['1']
+            var answer3 = data['results'][dataIndex]['incorrect_answers']['2']
+            var answer4 = data['results'][dataIndex]['correct_answer']
+            
+            // hide start section
+            categorySection.classList.add("hide")
+            randomSection.classList.add("hide")
+            difficultySection.classList.add("hide")
+            startPageBtnContainer.classList.add("hide")
 
-            //sort answers randomly so the 4th selection isn't always the correct answer
-        var randomAnswers = answers.sort((a,b) => 0.5 - Math.random())
+            // array of objects to add data to answers to determine if they're right or wrong
+            var answers = [
+                {'text': answer1,'correct': 'false'},
+                {'text': answer2,'correct': 'false'},
+                {'text': answer3,'correct': 'false'},
+                {'text': answer4,'correct': 'true'}
+                ]
 
-            //append question to page
-        var containerEl = document.querySelector(".container")
-        containerEl.appendChild(questonCont)
+            // sort answers randomly so the 4th selection isn't always the correct answer
+            var randomAnswers = answers.sort((a,b) => 0.5 - Math.random())
 
-        var questionEl = document.createElement('h1')
-        questionEl.classList.add("question-class")
-        questionEl.innerHTML = question
-        questonCont.appendChild(questionEl)
+            // append question to page
+            var containerEl = document.querySelector(".container")
+            containerEl.appendChild(questonCont)
 
-            //loop through answers to appened them to question card
-        for(var i =0; i < randomAnswers.length; i++){
-            var answerEl = document.createElement('button')
-            answerEl.classList.add('answr-btns')
-            var correct = randomAnswers[i]['correct']
-            questonCont.appendChild(answerEl)
-            answerEl.innerHTML = randomAnswers[i]['text']
+            var questionEl = document.createElement('h1')
+            questionEl.classList.add("question-class")
+            questionEl.innerHTML = question
+            questonCont.appendChild(questionEl)
 
-            //checks for if the selected answer is true
-           
+            // loop through answers to appened them to question card
+            for(var i =0; i < randomAnswers.length; i++){
+                var answerEl = document.createElement('button')
+                answerEl.classList.add('answr-btns')
+                var correct = randomAnswers[i]['correct']
+                questonCont.appendChild(answerEl)
+                answerEl.innerHTML = randomAnswers[i]['text']
+
+                // check for if the selected answer is true
                 if(correct === 'true'){
-                answerEl.addEventListener('click', function(){
-                questonCont.removeChild(questionEl)
-                points = points + 10
-                dataIndex = dataIndex + 1
-                
-                
+                    answerEl.addEventListener('click', function(){
+                    questonCont.removeChild(questionEl)
+                    points = points + 10
+                    dataIndex = dataIndex + 1
+                    
+                    
 
-                while (questonCont.firstChild){
-                    questonCont.firstChild.remove()
-                }
-                generateQuestion() 
-                return
+                    while (questonCont.firstChild){
+                        questonCont.firstChild.remove()
+                    }
+
+                    generateQuestion() 
+                    return;
                 })}
 
-                //if the user reaches the maximum score it stops the trivia
-
+                // stop trivia after 10 correct answers
                 else if(dataIndex === 10) {
                     var user = window.prompt('Congratulations! You have reached the maximum score of' + points + 'Please enter your name:')
+
                         var playerScore = {
                             Name: user,
                             Score: points
                         }
-                        localStorage.setItem('playerScore', JSON.stringify(playerScore))
+
+                        savedScore.push(playerScore)
+
+                        localStorage.setItem('playerScoreObj', JSON.stringify(savedScore))
                         document.location.reload();
                 }
                 else{
@@ -179,17 +186,17 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
                         var advice = data['slip']['advice']
                         var user = ''
                 
-                    //cover page in backdrop
+                    // cover page in backdrop
                     var backdrop = document.createElement('div');
                     backdrop.classList.add('backdrop')
                     backdrop.addEventListener('click', closeModal)
                     document.body.appendChild(backdrop)
                     
-                    //create modal container
+                    // create modal container
                     var modal = document.createElement('div')
                     modal.classList.add('modal')
 
-                    //modal text
+                    // append modal text
                     var modalHead = document.createElement('h1')
                     modalHead.classList.add
                     modalHead.innerHTML = advice
@@ -203,7 +210,7 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
                     modalText.innerHTML = 'Enter your name: '
                     modal.appendChild(modalText)
 
-                    //input for user name
+                    // input for user name
                     var modalInputContainer = document.createElement('div')
                     modalInputContainer.classList.add('modal-input')
                     modal.appendChild(modalInputContainer)
@@ -231,24 +238,29 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
                     confirmButton.classList.add('btn-confirm')
                     confirmButton.textContent = 'Confirm'
                     confirmButton.addEventListener('click', function(){
-                        //locally store data
-                        user = modalInputArea.value
-                        var playerScore = {Name: user, Score: points, Type: difficulty}
-                        var keyName = user + category + difficulty
-                        localStorage.setItem(keyName, JSON.stringify(playerScore))
-                        closeModal();
+
+                    // locally store data
+                    var playerScore = {
+                        name: user,
+                        score: points,
+                        type: difficulty
+                    }
+
+                    savedScore.push(playerScore)
+
+                    localStorage.setItem('playerScoreObj', JSON.stringify(savedScore))
+
+                    closeModal();
                     })
+
                     modalActionsContainer.appendChild(confirmButton)
-
                     body.appendChild(modal)
-
-
 
                 questonCont.removeChild(questionEl)
                 dataIndex = dataIndex + 1
-                return
+                return;
                 })})}    
-        }
+            }
         }
     
     generateQuestion()
