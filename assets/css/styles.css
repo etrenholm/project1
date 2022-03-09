@@ -1,7 +1,14 @@
+
+/* GLOBAL STYLES */
+
 * {
     box-sizing: border-box;
     margin: auto;
     padding: auto;
+}
+
+.hide {
+    display: none;
 }
 
 body {
@@ -9,46 +16,52 @@ body {
 }
 
 .container {
-    max-width: fit-content;
+    max-width: 660px;
     padding: 50px;
 }
 
-h1 {
+h1,
+h2,
+h3 {
     color: white;
-    font-size: 40px;
     font-weight: bold;
     text-align: center;
+}
+
+h1 {
+    font-size: 40px;
     padding-bottom: 10px;
 }
 
 h2 {
-    color: white;
     font-size: 22px;
-    font-weight: bold;
-    text-align: center;
     padding-bottom: 20px;
+}
+
+
+/* CATEGORY SELECTION STYLES */
+
+.category,
+.random-category {
+    background-color: white; 
 }
 
 .category {
     width: 100%;
     height: 100%;
-    background-color: white; 
     padding: 25px;
 }
-
+    
 .random-category {
-    width: 50%;
     height: 60px;
-    background-color: white; 
-    padding: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    align-items: center;
+    padding: 20px 60px;
+    margin: 0px auto 20px auto;
 }
 
 .random-category:hover,
 .category:hover {
-    opacity: 90%;
+    transform: scale(1.05);
+    transition: all 0.25s ease-in-out;
 }
 
 .category img {
@@ -59,13 +72,15 @@ h2 {
 .random-category p,
 .category p {
     font-weight: 600;
-    text-align: center;
     font-size: 15px;
 }
 
 .category p {
     padding-top: 15px;
 }
+
+
+/* DIFFICULTY SELECTION STYLES */
 
 .difficulty-section {
     background-color: white;
@@ -83,32 +98,75 @@ h2 {
     font-size: 14px;
 }
 
-.highscores-btn,
-.start-btn {
+.difficulty-btn:hover {
+    transform: scale(1.07);
+    transition: all 0.25s ease-in-out;
+}
+
+
+/* BOTTOM BUTTON STYLES */
+
+.btn {
     color: white;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 500;
     font-size: 16px;
 }
-/* question card */
-.question-container{
 
-}
-
-/* answer buttons */
-
-.answr-btns{
-
-}
-
-/* question */
-
-.question-class{
-    
+.btn:hover {
+    background: rgba(59,130,246);
 }
 
 
 
+/* QUESTION CARD STYLES */
+
+.question-container {
+    display: flex;
+    flex-direction: column;
+    background-color: white; 
+    padding: 25px;
+    border-radius: 25px;
+}
+
+.question-class {
+    color: black;
+}
+
+.answr-btns {
+    color: white;
+    background: rgba(79,70,229);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+.answr-btns:hover {
+    background: rgba(124,58,237);
+}
+
+.answr-btns:active {
+    background: rgba(124,58,237);
+}
 
 
+/* SELECTION ATTRIBUTES */
+
+/* Selected */
+.category-selected,
+.difficulty-selected {
+    opacity: 100%
+}
+
+/* Not Selected */
+.category-unselected,
+.difficulty-unselected {
+    opacity: 70%
+}
+
+/* HIGHSCORES STYLES */
+li {
+    padding-top: 10px;
+}

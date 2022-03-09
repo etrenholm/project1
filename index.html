@@ -13,7 +13,6 @@
 
 <body id="body" class="w-full h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-black">
 
-<!-------- START PAGE -------->
 <div class="container">
 
     <!-- title section -->
@@ -26,59 +25,62 @@
     <div id="category-section">
         <h2>Choose a category</h2>
 
+        <!-- category buttons -->
         <div class="grid grid-cols-3 gap-5 md:grid-cols-4 md:gap-5">
-            <div id="animals" class="category rounded-2xl">
+            <button id="animals" class="category rounded-2xl">
                 <img src="assets/images/TriviaIcons-01.svg" alt="lion">
                 <p>Animals</p>
-            </div>
+            </button>
 
-            <div id="celebs" class="category rounded-2xl">
+            <button id="celebs" class="category rounded-2xl">
                 <img src="assets/images/TriviaIcons-02.svg" alt="trophy">
                 <p>Celebrities</p>
-            </div>
+            </button>
 
-            <div id="film" class="category rounded-2xl">
+            <button id="film" class="category rounded-2xl">
                 <img src="assets/images/TriviaIcons-03.svg" alt="clapperboard">
                 <p>Film</p>
-            </div>
+            </button>
 
-            <div id="geography" class="category rounded-2xl">
+            <button id="geography" class="category rounded-2xl">
                 <img src="assets/images/TriviaIcons-04.svg" alt="globe">
                 <p>Geography</p>
-            </div>
+            </button>
 
-            <div id="music" class="category rounded-2xl">
+            <button id="music" class="category rounded-2xl">
                 <img src="assets/images/TriviaIcons-05.svg" alt="guitar">
                 <p>Music</p>
-            </div>
+            </button>
 
-            <div id="sports" class="category rounded-xl">
+            <button id="sports" class="category rounded-xl">
                 <img src="assets/images/TriviaIcons-06.svg" alt="basketball and net">
                 <p>Sports</p>
-            </div>
+            </button>
 
-            <div id="tv" class="category rounded-2xl">
+            <button id="tv" class="category rounded-2xl">
                 <img src="assets/images/TriviaIcons-07.svg" alt="television set">
                 <p>Television</p>
-            </div>
+            </button>
 
-            <div id="vehicles" class="category rounded-2xl">
+            <button id="vehicles" class="category rounded-2xl">
                 <img src="assets/images/TriviaIcons-08.svg" alt="steering wheel">
                 <p>Vehicles</p>
-            </div>
-        </div>
+            </button>
     
-        <div id="random" class="random-category space-x-2 rounded-2xl">
+            <button id="random" class="random-category col-start-1 col-end-4 md:col-start-2 md:col-end-4 space-x-2 rounded-2xl">
                 <i class="fa-solid fa-shuffle inline"></i>
                 <p class="inline">Random category</p>
-        </div>
+            </button>
 
+        </div>
     </div>
 
 
      <!-- difficulty section -->
      <div id="difficulty-section" class="difficulty-section rounded-2xl">
         <h2>Choose a difficulty</h2>
+
+        <!-- difficulty option buttons -->
         <div class="difficulty-button grid grid-cols-3 gap-6">
             <button id="easy-button" class="difficulty-btn bg-purple-600 rounded-full p-2">easy</button>
             <button id="medium-button" class="difficulty-btn bg-indigo-600 rounded-full p-2">medium</button>
@@ -87,12 +89,17 @@
     </div>
 
     
-
-    <!-- buttons -->
-    <div id="start-btn-container" class="grid grid-cols-2 gap-5 my-6">
-        <button id="highscores" class="highscores-btn border-2 border-blue-500 hover:bg-blue-500 rounded-full p-5">Highscores</button>
-        <button id="start-btn" class="start-btn bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-500 rounded-full p-5">Start</button>
+<!-------- START PAGE BOTTOM BUTTONS -------->
+    <div id="startpage-btn-container" class="grid grid-cols-2 gap-5 my-6">
+        <button id="highscores" class="highscores-btn btn border-2 border-blue-500 hover:bg-blue-500 rounded-full p-5">Highscores</button>
+        <button id="start-btn" class="start-btn btn bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-500 hover:bg-blue-500 rounded-full p-5">Start</button>
     </div>
+
+<!-------- QUIZ PAGE BOTTOM BUTTONS -------->
+    <!-- <div id="quizpage-btn-container" class="grid grid-cols-2 gap-5 my-6">
+        <button id="highscores" class="endgame-btn btn border-2 border-blue-500 hover:bg-blue-500 rounded-full p-5">End Game</button>
+        <button id="start-btn" class="startover-btn btn bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-500 rounded-full p-5">Start Over</button>
+    </div> -->
 
     </main>
 
