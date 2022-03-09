@@ -71,6 +71,8 @@ randomCat.addEventListener('click', function(){
     category = randomNumber
 })
 
+
+//start button
 var startBtn = document.querySelector('#start-btn')
 startBtn.addEventListener('click', function(){
     startTrivia()
@@ -82,6 +84,8 @@ var questonCont = document.createElement('div')
 questonCont.classList.add('question-container')
 
 
+
+//start trivia
 function startTrivia(){
 
 // fetch trivia question data
@@ -92,17 +96,21 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
         console.log(data)
         
         //generate question based on data
-        function generateQuestion(){      
+        function generateQuestion(){  
+            //define questions and answers based on API data    
         var question = data['results'][dataIndex]['question']
         var answer1 = data['results'][dataIndex]['incorrect_answers']['0']
         var answer2 = data['results'][dataIndex]['incorrect_answers']['1']
         var answer3 = data['results'][dataIndex]['incorrect_answers']['2']
         var answer4 = data['results'][dataIndex]['correct_answer']
+        
+            //hide unneeded sections at start of quiz, like category buttons
         categorySection.classList.add("hide")
         randomSection.classList.add("hide")
         difficultySection.classList.add("hide")
         startPageBtnContainer.classList.add("hide")
 
+            //array of objects to add data to answers to determine if they're right or wrong
         
         var answers = [
             {'text': answer1,'correct': 'false'},
@@ -110,7 +118,11 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
             {'text': answer3,'correct': 'false'},
             {'text': answer4,'correct': 'true'}
             ]
+
+            //sort answers randomly so the 4th selection isn't always the correct answer
         var randomAnswers = answers.sort((a,b) => 0.5 - Math.random())
+
+            //append question to page
         var containerEl = document.querySelector(".container")
         containerEl.appendChild(questonCont)
 
@@ -118,12 +130,16 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
         questionEl.classList.add("question-class")
         questionEl.innerHTML = question
         questonCont.appendChild(questionEl)
+
+            //loop through answers to appened them to question card
         for(var i =0; i < randomAnswers.length; i++){
             var answerEl = document.createElement('button')
             answerEl.classList.add('answr-btns')
             var correct = randomAnswers[i]['correct']
             questonCont.appendChild(answerEl)
             answerEl.innerHTML = randomAnswers[i]['text']
+
+            //checks for if the selected answer is true
            
                 if(correct === 'true'){
                 answerEl.addEventListener('click', function(){
@@ -140,6 +156,8 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
                 return
                 })}
 
+                //if the user reaches the maximum score it stops the trivia
+
                 else if(dataIndex === 10) {
                     var user = window.prompt('Congratulations! You have reached the maximum score of' + points + 'Please enter your name:')
                         var playerScore = {
@@ -147,6 +165,7 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
                             Score: points
                         }
                         localStorage.setItem('playerScore', JSON.stringify(playerScore))
+                        document.location.reload();
                 }
                 else{
                 function closeModal(){
@@ -173,8 +192,16 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
                     //modal text
                     var modalHead = document.createElement('h1')
                     modalHead.classList.add
-                    modalHead.innerHTML = advice + ' Your score was ' + points + '. ' + 'Enter your name: '
+                    modalHead.innerHTML = advice
                     modal.appendChild(modalHead)
+
+                    var modalScore = document.createElement('h4')
+                    modalScore.innerHTML = ' Your score was ' + points + '. '
+                    modal.appendChild(modalScore)
+
+                    var modalText = document.createElement('p')
+                    modalText.innerHTML = 'Enter your name: '
+                    modal.appendChild(modalText)
 
                     //input for user name
                     var modalInputContainer = document.createElement('div')

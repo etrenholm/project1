@@ -195,6 +195,7 @@ li {
   
   .modal-input textarea {
     background-color: grey;
+    opacity: 70%;
     width: 100%;
     font: inherit;
     resize: none;
