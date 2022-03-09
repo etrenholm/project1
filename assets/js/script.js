@@ -8,6 +8,8 @@ var randomSection = document.querySelector("#random")
 var difficultySection = document.querySelector("#difficulty-section")
 var startPageBtnContainer = document.querySelector("#startpage-btn-container")
 var quizPageBtnContainer = document.querySelector("#quizpage-btn-container")
+var backdrop
+var modal
 
 //easy button
 var easyBtn = document.querySelector('#easy-button');
@@ -126,9 +128,11 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
                 if(correct === 'true'){
                 answerEl.addEventListener('click', function(){
                 questonCont.removeChild(questionEl)
-                points = points + 1
+                points = points + 10
                 dataIndex = dataIndex + 1
-                window.alert('correct')               
+                
+                
+
                 while (questonCont.firstChild){
                     questonCont.firstChild.remove()
                 }
@@ -136,7 +140,7 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
                 return
                 })}
 
-                else if(dataIndex === 49) {
+                else if(dataIndex === 10) {
                     var user = window.prompt('Congratulations! You have reached the maximum score of' + points + 'Please enter your name:')
                         var playerScore = {
                             Name: user,
@@ -146,10 +150,9 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
                 }
                 else{
                 function closeModal(){
-                    if (backdrop) {
-                        backdrop.remove
-                    }
+                    document.location.reload();
                 }
+                
                 answerEl.addEventListener('click', function(){
                     fetch('https://api.adviceslip.com/advice')
                     .then(response => response.json())
@@ -169,7 +172,8 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
 
                     //modal text
                     var modalHead = document.createElement('h1')
-                    modalHead.textContent = advice + '\nYour score was: ' + score + '\nEnter your name: '
+                    modalHead.classList.add
+                    modalHead.innerHTML = advice + ' Your score was ' + points + '. ' + 'Enter your name: '
                     modal.appendChild(modalHead)
 
                     //input for user name
@@ -191,11 +195,25 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
                     var cancelButton = document.createElement('button')
                     cancelButton.setAttribute('type', 'button')
                     cancelButton.classList.add('btn-cancel')
+                    cancelButton.textContent = 'Cancel'
+                    cancelButton.addEventListener('click', closeModal)
+                    modalActionsContainer.appendChild(cancelButton)
 
+                    var confirmButton = document.createElement('button')
+                    confirmButton.setAttribute('type', 'button')
+                    confirmButton.classList.add('btn-confirm')
+                    confirmButton.textContent = 'Confirm'
+                    confirmButton.addEventListener('click', function(){
+                        //locally store data
+                        user = modalInputArea.value
+                        var playerScore = {Name: user, Score: points, Type: difficulty}
+                        var keyName = user + category + difficulty
+                        localStorage.setItem(keyName, JSON.stringify(playerScore))
+                        closeModal();
+                    })
+                    modalActionsContainer.appendChild(confirmButton)
 
-                    //locally store data
-                    var playerScore = {Name: user, Score: points}
-                    localStorage.setItem('playerScore', JSON.stringify(playerScore))
+                    body.appendChild(modal)
 
 
 
