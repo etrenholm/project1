@@ -13,11 +13,24 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    background-image: url('assets/images/Rocket.svg')
+}
+
+.rocket-img {
+    background-repeat: no-repeat;
+    background-position: top 110px right 90px;
+    background-size: 15%;
 }
 
 .container {
     max-width: 660px;
     padding: 50px;
+}
+
+.title-font {
+    font-family: 'MuseoModerno';
+    font-size: 75px;
+    padding-bottom: 10px;
 }
 
 h1,
@@ -30,7 +43,7 @@ h4 {
 }
 
 h1 {
-    font-size: 44px;
+    font-size: 42px;
     padding-bottom: 10px;
 }
 
