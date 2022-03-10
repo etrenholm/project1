@@ -59,14 +59,14 @@ animalCat.addEventListener('click', function(){
     animalCat.classList.remove('category-unselected')
     animalCat.classList.add('category-selected')
 })
-var celebCat = document.querySelector('#celebs')
-celebCat.addEventListener('click', function(){
-    category = "26"
+var computerCat = document.querySelector('#computers')
+computerCat.addEventListener('click', function(){
+    category = "18"
     for (var i = 0; i < allCategory.length; i++) {
         allCategory[i].classList.add('category-unselected')
        }
-     celebCat.classList.remove('category-unselected')
-     celebCat.classList.add('category-selected')
+     computerCat.classList.remove('category-unselected')
+     computerCat.classList.add('category-selected')
 })
 var filmCat = document.querySelector('#film')
 filmCat.addEventListener('click', function(){
