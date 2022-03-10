@@ -155,7 +155,7 @@ function startTrivia(){
 fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficulty=' + difficulty + '&type=multiple')
     .then(response => response.json())
     .then(data => {
-        console.log(data)
+
         
     // generate question based on API data
     function generateQuestion(){  
@@ -318,7 +318,7 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
                 modalActionsContainer.appendChild(confirmButton)
                 body.appendChild(modal)
 
-            questonCont.removeChild(questionEl)
+           
             dataIndex = dataIndex + 1
             return;
             })})}    
