@@ -138,14 +138,17 @@ randomCat.addEventListener('click', function(){
 // start button
 var startBtn = document.querySelector('#start-btn')
 startBtn.addEventListener('click', function(){
+    if(category === '' || difficulty === ''){
+        console.log("worked")
+    }else{
     startTrivia()
+    }
 })
 
 var body = document.querySelector('#body')
 var questonCont = document.createElement('div')
 
 questonCont.classList.add('question-container')
-
 
 
 // start trivia
