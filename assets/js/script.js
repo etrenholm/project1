@@ -150,6 +150,9 @@ var questonCont = document.createElement('div')
 
 questonCont.classList.add('question-container')
 
+function closeModal(){
+    document.location.reload();
+}
 
 // start trivia
 function startTrivia(){
@@ -162,6 +165,81 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
         
     // generate question based on API data
     function generateQuestion(){  
+
+        //Statement to stop trivia with a perfect score of 10 correct answers (100 points)
+        if(dataIndex === 10){
+
+            // cover page in backdrop
+            var backdrop = document.createElement('div');
+            backdrop.classList.add('backdrop')
+            backdrop.addEventListener('click', closeModal)
+            document.body.appendChild(backdrop)
+            
+            // create modal container
+            var modal = document.createElement('div')
+            modal.classList.add('modal')
+    
+            // append modal text
+    
+            var modalScore = document.createElement('h1')
+            modalScore.innerHTML = ' Congratulations! Perfect score of ' + points + '!'
+            modal.appendChild(modalScore)
+    
+            var modalText = document.createElement('p')
+            modalText.innerHTML = 'Enter your name: '
+            modal.appendChild(modalText)
+    
+            // input for user name
+            var modalInputContainer = document.createElement('div')
+            modalInputContainer.classList.add('modal-input')
+            modal.appendChild(modalInputContainer)
+    
+            var modalInputArea = document.createElement('textarea')
+            modalInputArea.addEventListener('input', function(){
+                user = modalInputArea.value
+            })
+            modalInputContainer.appendChild(modalInputArea)
+    
+            //modal actions ie - confirm / cancel
+            var modalActionsContainer = document.createElement('div')
+            modalActionsContainer.classList.add('modal-actions')
+            modal.appendChild(modalActionsContainer)
+    
+            var cancelButton = document.createElement('button')
+            cancelButton.setAttribute('type', 'button')
+            cancelButton.classList.add('btn-cancel')
+            cancelButton.textContent = 'Cancel'
+            cancelButton.addEventListener('click', closeModal)
+            modalActionsContainer.appendChild(cancelButton)
+    
+            var confirmButton = document.createElement('button')
+            confirmButton.setAttribute('type', 'button')
+            confirmButton.classList.add('btn-confirm')
+            confirmButton.textContent = 'Confirm'
+            confirmButton.addEventListener('click', function(){
+    
+            // locally store data
+            var playerScore = {
+                name: user,
+                score: points,
+                type: difficulty
+            }
+    
+            savedScore.push(playerScore)
+            savedScore.sort((a,b) => {
+                return b.score - a.score;
+            })
+    
+            localStorage.setItem('playerScoreObj', JSON.stringify(savedScore))
+    
+            closeModal();
+            })
+    
+            modalActionsContainer.appendChild(confirmButton)
+            body.appendChild(modal)
+    
+    
+        }
 
         // define questions and answers based on API data    
         var question = data['results'][dataIndex]['question']
@@ -210,6 +288,7 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
                 questonCont.removeChild(questionEl)
                 points = points + 10
                 dataIndex = dataIndex + 1
+                console.log(dataIndex)
                 
                 while (questonCont.firstChild){
                     questonCont.firstChild.remove()
@@ -223,23 +302,12 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
             else if(dataIndex === 10) {
                 var user = window.prompt('Congratulations! You have reached the maximum score of' + points + 'Please enter your name:')
 
-                    var playerScore = {
-                        Name: user,
-                        Score: points
-                    }
-
-                    savedScore.push(playerScore)
-                    savedScore.sort((a,b) => {
-                    return b.score - a.score;
-                    })
+                    
 
                     localStorage.setItem('playerScoreObj', JSON.stringify(savedScore))
                     document.location.reload();
             }
             else{
-            function closeModal(){
-                document.location.reload();
-            }
             
             answerEl.addEventListener('click', function(){
                 fetch('https://api.adviceslip.com/advice')
