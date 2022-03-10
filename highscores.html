@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Trivia Blast!</title>
+</head>
+
+<body class="w-full h-screen bg-gradient-to-br from-purple-900 via-black to-blue-900">
+
+<div class="rocket-img" style="background-image: url(assets/images/Rocket2.svg)">
+
+<div class="container">
+
+    <!-- title section -->
+    <header>
+        <h1>Trivia Blast!</h1>
+    </header>
+
+    <main>
+    <!-- category section -->
+    <div id="highscore-section">
+        <h2>Highscores</h2>
+    </div>
+
+    <div id="highscores-row" class="highscores-row grid grid-cols-3 gap-5">
+
+        <!-- easy section -->
+        <div id="easy-section" class="difficulty-section rounded-2xl my-5">
+            <div id="easy-header" class="easy-header bg-purple-600 rounded-full p-2">
+                <h3>easy</h3>
+            </div>
+            <div id="easy-scores" class="easy-scores scores my-4">
+                <ol id="easy-list">
+                </ol>
+            </div>
+
+        </div>
+
+        <!-- medium section -->
+        <div id="medium-section" class="difficulty-section rounded-2xl my-5">
+            <div id="medium-header" class="medium-header bg-indigo-600 rounded-full p-2">
+                <h3>medium</h3>
+            </div>
+            <div id="medium-scores" class="medium-scores scores my-4">
+                <ol id="med-list">
+                </ol>
+            </div>
+        </div>
+
+        <!-- hard section -->
+        <div id="hard-section" class="difficulty-section rounded-2xl my-5">
+            <div id="hard-header" class="hard-header bg-blue-500 rounded-full p-2">
+                <h3>hard</h3>
+            </div>
+            <div id="hard-scores" class="hard-scores scores my-4">
+                <ol id="hard-list">
+                </ol>
+            </div>
+        </div>
+
+</div>
+
+
+    <!-- buttons -->
+    <div id="quizpage-btn-container" class="grid grid-cols-1 gap-5 my-6">
+        <button id="start-btn" class="start-btn btn bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-500 rounded-full p-5">Play Again</a></button>
+    </div>
+
+    </main>
+
+</div>
+</div>
+
+    <script src="assets/js/highscorescript.js"></script>
+</body>
+</html>
