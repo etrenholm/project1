@@ -1,28 +1,28 @@
 # Trivia Blast!
 
 ## Table of contents
+* [User Story](#user-story)
 * [Description](#description)
 * [Motivation](#motivation)
-* [User Story](#user-story)
 * [Technologies](#technologies)
 * [Challanges](#challanges)
 * [Successes](#successes)
 * [Process](#process)
-* [Directions for Future Development](#Directions-for-Future-Development)
+* [Directions for Future Development](#directions-for-future-development)
 * [Credits](#credits)
 * [Results](#results)
 * [Contributers](#contributers)
+
+## User Story
+AS A trivia fanatic
+I WANT a quiz app that allows me to choose my category and level of difficulty
+SO THAT I can test my knowledge in various categories at different levels.
 
 ## Description
 Trivia Blast! is a unique quiz app which allows users to customize their own quiz experience by choosing from eight categories and three levels of difficulty. Once a user chooses their trivia journey, they will attempt to answer all 10 questions correctly. If the player answers incorrectly the game is over- but they won’t feel discouraged! Trivia Blast! will provide “inspirational advice” to maintain a positive attitude before their next attempt. At the end of each game, high scores can be saved so the user has the opportunity to beat it on their next try. Can they score a perfect 10 out of 10? 
 
 ## Motivation
 We wanted to utilize what we've learned about APIs to add a more advanced spin to the quiz format we were more familiar with. We also wanted to come up with a concept that would have the flexibility to grow in future versions. As a whole, we wanted a project idea that would flex our creativity by making a relatively simple concept more unique and exciting.
-
-## User Story
-AS A trivia fanatic
-I WANT a quiz app that allows me to choose my category and level of difficulty
-SO THAT I can test my knowledge in various categories at different levels.
 	
 ## Technologies
 Project was created using:
