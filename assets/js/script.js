@@ -1,4 +1,5 @@
 // global variables vv
+//#region 
 var difficulty = ''
 var category = ''
 var dataIndex = 0
@@ -9,14 +10,13 @@ var difficultySection = document.querySelector("#difficulty-section")
 var startPageBtnContainer = document.querySelector("#startpage-btn-container")
 var quizPageBtnContainer = document.querySelector("#quizpage-btn-container")
 var allCategory = document.querySelectorAll('.cat-btn')
-
-
 var backdrop
 var modal
-
 var savedScore = JSON.parse(localStorage.getItem("playerScoreObj")) || [];
+//#endregion
 
-
+//difficulty buttons
+//#region 
 // easy button
 var easyBtn = document.querySelector('#easy-button');
 easyBtn.addEventListener('click', function(){
@@ -48,8 +48,10 @@ hardBtn.addEventListener('click', function(){
     hardBtn.classList.add('category-selected')
     
 })
+//#endregion
 
 // category buttons
+//#region 
 var animalCat = document.querySelector('#animals')
 animalCat.addEventListener('click', function(){
     category = "27"
@@ -133,13 +135,37 @@ randomCat.addEventListener('click', function(){
      randomCat.classList.remove('category-unselected')
      randomCat.classList.add('category-selected')
 })
-
+//#endregion
 
 // start button
 var startBtn = document.querySelector('#start-btn')
 startBtn.addEventListener('click', function(){
     if(category === '' || difficulty === ''){
-        console.log("worked")
+        // cover page in backdrop
+        var backdrop = document.createElement('div');
+        backdrop.classList.add('backdrop')
+        backdrop.addEventListener('click', closeModal)
+        document.body.appendChild(backdrop)
+        
+        // create modal container
+        var modal = document.createElement('div')
+        modal.classList.add('close-modal')
+
+        // append modal text
+
+        var modalScore = document.createElement('h1')
+        modalScore.innerHTML = 'Please select both a category and difficulty.'
+
+        var cancelButton = document.createElement('button')
+        cancelButton.setAttribute('type', 'button')
+        cancelButton.classList.add('btn-close')
+        cancelButton.textContent = 'Close'
+        cancelButton.addEventListener('click', closeModal)
+        
+        modal.appendChild(modalScore)
+        modal.appendChild(cancelButton)
+        body.appendChild(modal)
+
     }else{
     startTrivia()
     }
