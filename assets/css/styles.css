@@ -18,7 +18,6 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-image: url('assets/images/Rocket.svg')
 }
 
 .rocket-img {
@@ -227,7 +226,7 @@ li {
 }
 
 .close-modal h1{
-    color: rgba(79,70,229);
+    color: black;
     font-size: 24px;
 
 }
@@ -262,35 +261,28 @@ li {
     gap: 10px;
 }
 
-.btn-cancel {
-    color: white;
-    font-weight: 700;
-    font-size: 14px;
-    background: rgba(59,130,246);
-    padding: 10px;
-    width: 50%;
-    border-radius: 30px;
-}
-
-.btn-close {
-    color: white;
-    font-weight: 700;
-    font-size: 14px;
-    background: red;
-    padding: 10px;
-    width: 50%;
-    border-radius: 30px;
-    align-self: center;
-}
-
+.btn-cancel,
+.btn-close,
 .btn-confirm {
     color: white;
     font-weight: 700;
     font-size: 14px;
-    background: rgba(124,58,237);
     padding: 10px;
     width: 50%;
     border-radius: 30px;
+}
+
+.btn-cancel {
+    background: rgba(59,130,246);
+}
+
+.btn-close {
+    background: rgba(59,130,246);
+    align-self: center;
+}
+
+.btn-confirm {
+    background: rgba(124,58,237);
     }
 
 .btn-cancel:hover,
@@ -313,17 +305,27 @@ li {
 
 /* MOBILE STYLES */
 
-/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
-
-@media screen and (max-width: 980px) {
-
-}
-
 /* MEDIA QUERY FOR TABLETS AND SMALLER */
 
 @media screen and (max-width: 768px) {
 
-    .modal {
+
+    .rocket-img {
+        background-position: top 120px right 10px;
+        background-size: 20%;
+    }
+
+    h1 {
+        font-size: 24px;
+        padding-bottom: 5px;
+    }
+
+    .btn {
+        font-size: 12px;
+    }
+
+    .modal,
+    .close-modal {
         top: 15%;
         left: 20%;
         width: 60%;
@@ -335,10 +337,19 @@ li {
 
 @media screen and (max-width: 575px) {
 
-    .modal {
-        top: 15%;
+    .modal,
+    .close-modal {
         left: 10%;
         width: 80%;
+    }
+
+    .rocket-img {
+        background-position: top 110px right -50px;
+        background-size: 30%;
+    }
+
+    .title-font {
+        line-height: 80px;
     }
 
 }
