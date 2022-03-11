@@ -2,8 +2,13 @@
 
 ## Table of contents
 * [Description](#description)
+* [Motivation](#motivation)
+* [User Story](#user-story)
 * [Technologies](#technologies)
+* [Challanges](#challanges)
+* [Successes](#successes)
 * [Process](#process)
+* [Directions for Future Development](#Directions-for-Future-Development)
 * [Credits](#credits)
 * [Results](#results)
 * [Contributers](#contributers)
@@ -87,7 +92,7 @@ Project was created using:
 ### STEP 8. - VERSION 2.0
 * Add various enhancements to style and functionality
 * Add bronze, silver, gold medal functionality
-* Create mobile responsiveness
+* Enhance mobile responsiveness
 * Upon incorrect answer, show correct answer
 
 ### STEP 9. - FINALIZE AND DEPLOY 
@@ -96,10 +101,10 @@ Project was created using:
 * Deploy to main branch 
 
 ## Directions for Future Development
-* Extend quiz to run until user gets an answer incorrect
-* Interactivity between users on different devices
-* Social media sharing
-* Expand theme and aesthetics of interface
+* Extend the quiz to run infinitely until a user gets an answer incorrect
+* Interactivity between users on different devices by going beyond local storage
+* Integrate the ability to share on social media
+* Expand the theme and aesthetics of interface
 
 ## Credits
 Open Trivia API: https://opentdb.com/api_config.php
