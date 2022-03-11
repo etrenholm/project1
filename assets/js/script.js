@@ -12,10 +12,13 @@ var quizPageBtnContainer = document.querySelector("#quizpage-btn-container")
 var allCategory = document.querySelectorAll('.cat-btn')
 var backdrop
 var modal
+var body = document.querySelector('#body')
+var questonCont = document.createElement('div')
+questonCont.classList.add('question-container')
 var savedScore = JSON.parse(localStorage.getItem("playerScoreObj")) || [];
 //#endregion
 
-//difficulty buttons
+// difficulty buttons
 //#region 
 // easy button
 var easyBtn = document.querySelector('#easy-button');
@@ -138,6 +141,7 @@ randomCat.addEventListener('click', function(){
 //#endregion
 
 // start button
+//#region 
 var startBtn = document.querySelector('#start-btn')
 startBtn.addEventListener('click', function(){
     if(category === '' || difficulty === ''){
@@ -170,17 +174,17 @@ startBtn.addEventListener('click', function(){
     startTrivia()
     }
 })
+//#endregion
 
-var body = document.querySelector('#body')
-var questonCont = document.createElement('div')
-
-questonCont.classList.add('question-container')
-
+// function to reload page on modal close
+//#region 
 function closeModal(){
     document.location.reload();
 }
+//#endregion
 
-// start trivia
+// trivia functionality
+//#region 
 function startTrivia(){
 
 // fetch trivia question data
@@ -424,6 +428,7 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
     
     generateQuestion()
 })}
+//#endregion
 
 
 
