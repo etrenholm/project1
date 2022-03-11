@@ -148,7 +148,9 @@ startBtn.addEventListener('click', function(){
         // cover page in backdrop
         var backdrop = document.createElement('div');
         backdrop.classList.add('backdrop')
-        backdrop.addEventListener('click', closeModal)
+        backdrop.addEventListener('click', function(){
+            location.href = './index.html'
+        })
         document.body.appendChild(backdrop)
         
         // create modal container
@@ -164,7 +166,9 @@ startBtn.addEventListener('click', function(){
         cancelButton.setAttribute('type', 'button')
         cancelButton.classList.add('btn-close')
         cancelButton.textContent = 'Close'
-        cancelButton.addEventListener('click', closeModal)
+        cancelButton.addEventListener('click', function(){
+            location.href = './index.html'
+        })
         
         modal.appendChild(modalScore)
         modal.appendChild(cancelButton)
@@ -179,7 +183,7 @@ startBtn.addEventListener('click', function(){
 // function to reload page on modal close
 //#region 
 function closeModal(){
-    document.location.reload();
+    location.href = './highscores.html';
 }
 //#endregion
 
