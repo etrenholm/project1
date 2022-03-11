@@ -1,3 +1,8 @@
+.modal {
+    top: 15%;
+    left: 20%;
+    width: 60%;
+}
 
 /* GLOBAL STYLES */
 
@@ -277,4 +282,36 @@ li {
     left: 0;
     background: rgba(0, 0, 0, 0.5);
     z-index: 100;
+}
+
+/* MOBILE STYLES */
+
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+
+@media screen and (max-width: 980px) {
+
+}
+
+/* MEDIA QUERY FOR TABLETS AND SMALLER */
+
+@media screen and (max-width: 768px) {
+
+    .modal {
+        top: 15%;
+        left: 20%;
+        width: 60%;
+    }
+
+}
+
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+
+@media screen and (max-width: 575px) {
+
+    .modal {
+        top: 15%;
+        left: 10%;
+        width: 80%;
+    }
+
 }
