@@ -204,7 +204,8 @@ li {
 
 /* MODAL STYLES */
 
-.modal {
+.modal,
+.close-modal {
     position: fixed;
     z-index: 200;
     top: 25%;
@@ -214,6 +215,21 @@ li {
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
     padding: 25px;
     border-radius: 30px;
+
+}
+
+.close-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.close-modal h1 {
+    color: rgba(79,70,229);
+    font-size: 24px;
+
 }
 
 .modal h1 {
@@ -254,6 +270,17 @@ li {
     padding: 10px;
     width: 50%;
     border-radius: 30px;
+}
+
+.btn-close {
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    background: red;
+    padding: 10px;
+    width: 50%;
+    border-radius: 30px;
+    align-self: center;
 }
 
 .btn-confirm {
