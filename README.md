@@ -1,4 +1,4 @@
-# Project 1
+# Trivia Blast!
 
 ## Table of contents
 * [Description](#description)
