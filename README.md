@@ -1,15 +1,28 @@
 # Trivia Blast!
 
 ## Table of contents
+* [User Story](#user-story)
 * [Description](#description)
+* [Motivation](#motivation)
 * [Technologies](#technologies)
+* [Challanges](#challanges)
+* [Successes](#successes)
 * [Process](#process)
+* [Directions for Future Development](#directions-for-future-development)
 * [Credits](#credits)
 * [Results](#results)
 * [Contributers](#contributers)
 
+## User Story
+AS A trivia fanatic
+I WANT a quiz app that allows me to choose my category and level of difficulty
+SO THAT I can test my knowledge in various categories at different levels.
+
 ## Description
-Create a unique trivia app which allows users to customize their own quiz experience by choosing a category and a level of difficulty for the questions. Once a user chooses their journey, they battle against themselves to surpass  previous scores in each of the three levels of difficulty. The user continues to answer questions until they answer incorrectly, at which time the game ends and they receive a piece of inspirational advice to maintain a positive attitude.
+Trivia Blast! is a unique quiz app which allows users to customize their own quiz experience by choosing from eight categories and three levels of difficulty. Once a user chooses their trivia journey, they will attempt to answer all 10 questions correctly. If the player answers incorrectly the game is over- but they won’t feel discouraged! Trivia Blast! will provide “inspirational advice” to maintain a positive attitude before their next attempt. At the end of each game, high scores can be saved so the user has the opportunity to beat it on their next try. Can they score a perfect 10 out of 10? 
+
+## Motivation
+We wanted to utilize what we've learned about APIs to add a more advanced spin to the quiz format we were more familiar with. We also wanted to come up with a concept that would have the flexibility to grow in future versions. As a whole, we wanted a project idea that would flex our creativity by making a relatively simple concept more unique and exciting.
 	
 ## Technologies
 Project was created using:
@@ -19,13 +32,31 @@ Project was created using:
 * JavaScript
 * Git
 * GitHub
+* APIs
+* Open Trivia API
+* Advice Slip API
+* Google Fonts API
+* TailWindCSS
+* Font Awesome
+
+## Challenges
+* Following the GitHub Process as a group
+* Utilizing TailwindCSS as a framework, combining it with regular CSS successfully
+* Thinking of a creative concept that can incorporate more than one API
+* Figuring out how to display modals
+
+## Successes
+* Collaborating as a group
+* Concepualizing a common goal and being on the same page
+* Learning from and capitalizing on our errors and mistakes
+* Bringing the product to life!
 
 ## Process
 ### STEP 1. - SETUP
 * Create a GitHub repository
 * Created base HTML, CSS, and JavaScript files
 * Pushed files into the new Repo using Git
-* Define Issues to be completed throughout the process
+* Define GitHub Issues to be completed throughout the process
 
 ### STEP 2. - BASE HTML & CSS
 * Design wireframe and mockup
@@ -52,39 +83,52 @@ Project was created using:
 * Get score data from local storage and display on highscore page
 
 ### STEP 7. - TEST AND DEPLOY
-* Work out any bugs and enhancements before deployment of Version 1.0
-* Refactor HTML, CSS, and JAVASCRIPT
-* Deploy and test Version 1.0 functionality in GitHub pages
-* Create Issues for enhancements for Version 2.0
+* Work out bugs and enhancements
+* Refactor HTML, CSS, and JavaScript
+* Deploy to main branch 
+* Test Version 1.0 functionality in GitHub pages
+* Create GitHub Issues for Version 2.0
 
 ### STEP 8. - VERSION 2.0
 * Add various enhancements to style and functionality
+* Add bronze, silver, gold medal functionality
+* Enhance mobile responsiveness
+* Upon incorrect answer, show correct answer
 
 ### STEP 9. - FINALIZE AND DEPLOY 
+* Finalize ReadMe
+* Refactor HTML, CSS, and JavaScript
+* Deploy to main branch 
+
+## Directions for Future Development
+* Extend the quiz to run infinitely until a user gets an answer incorrect
+* Interactivity between users on different devices by going beyond local storage
+* Integrate the ability to share on social media
+* Expand the theme and aesthetics of interface
 
 ## Credits
-
 Open Trivia API: https://opentdb.com/api_config.php
 
 Advice Slip API: https://api.adviceslip.com/advice
 
-Google Fonts API: https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;900&display=swap
+Google Fonts API: https://fonts.googleapis.com
 
 TailwindCSS: https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css
 
 Font Awesome: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
 
 ## Results
-
-* GitHub URL:
-* GitHub Repository:
+* GitHub URL: https://etrenholm.github.io/trivia-blast/
+* GitHub Repository: https://github.com/etrenholm/trivia-blast
 * Mockup:
 
-![mockup](./assets/images/)
+![mockup](./assets/images/Screenshot1.png)
+![mockup](./assets/images/Screenshot2.png)
+![mockup](./assets/images/Screenshot3.png)
+![mockup](./assets/images/Screenshot4.png)
 
 
 ## Contributers
-
 * Jesse Lemieux: https://github.com/Jesse-Lemieux
 * Cameron Davis: https://github.com/PaccC8
 * Erica Trenholm: https://github.com/etrenholm
