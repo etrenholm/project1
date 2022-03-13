@@ -90,10 +90,8 @@ Project was created using:
 * Create GitHub Issues for Version 2.0
 
 ### STEP 8. - VERSION 2.0
-* Add various enhancements to style and functionality
-* Add bronze, silver, gold medal functionality
+* Add enhancements to style and functionality
 * Enhance mobile responsiveness
-* Upon incorrect answer, show correct answer
 
 ### STEP 9. - FINALIZE AND DEPLOY 
 * Finalize ReadMe
@@ -101,6 +99,7 @@ Project was created using:
 * Deploy to main branch 
 
 ## Directions for Future Development
+* Enhance high score organization and add bronze, silver, gold medal functionality
 * Extend the quiz to run infinitely until a user gets an answer incorrect
 * Interactivity between users on different devices by going beyond local storage
 * Integrate the ability to share on social media
