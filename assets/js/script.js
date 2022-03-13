@@ -211,7 +211,6 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
             modal.classList.add('modal')
     
             // append modal text
-    
             var modalScore = document.createElement('h1')
             modalScore.innerHTML = ' Congratulations! Perfect score of ' + points + '!'
             modal.appendChild(modalScore)
@@ -379,7 +378,7 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
                 })
                 modalInputContainer.appendChild(modalInputArea)
 
-                //modal actions ie - confirm / cancel
+                // modal actions ie - confirm / cancel
                 var modalActionsContainer = document.createElement('div')
                 modalActionsContainer.classList.add('modal-actions')
                 modal.appendChild(modalActionsContainer)
