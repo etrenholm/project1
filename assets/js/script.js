@@ -38,7 +38,6 @@ medBtn.addEventListener('click', function(){
     easyBtn.classList.add('category-unselected') 
     medBtn.classList.add('category-selected')
     hardBtn.classList.add('category-unselected')
-    
 })
 
 // hard button
@@ -49,7 +48,6 @@ hardBtn.addEventListener('click', function(){
     easyBtn.classList.add('category-unselected') 
     medBtn.classList.add('category-unselected')
     hardBtn.classList.add('category-selected')
-    
 })
 //#endregion
 
@@ -58,72 +56,72 @@ hardBtn.addEventListener('click', function(){
 var animalCat = document.querySelector('#animals')
 animalCat.addEventListener('click', function(){
     category = "27"
-    for (var i = 0; i < allCategory.length; i++) {
-       allCategory[i].classList.add('category-unselected')
-      }
+        for (var i = 0; i < allCategory.length; i++) {
+            allCategory[i].classList.add('category-unselected')
+        }
     animalCat.classList.remove('category-unselected')
     animalCat.classList.add('category-selected')
 })
 var computerCat = document.querySelector('#computers')
 computerCat.addEventListener('click', function(){
     category = "18"
-    for (var i = 0; i < allCategory.length; i++) {
-        allCategory[i].classList.add('category-unselected')
-       }
+        for (var i = 0; i < allCategory.length; i++) {
+            allCategory[i].classList.add('category-unselected')
+        }
      computerCat.classList.remove('category-unselected')
      computerCat.classList.add('category-selected')
 })
 var filmCat = document.querySelector('#film')
 filmCat.addEventListener('click', function(){
     category = "11"
-    for (var i = 0; i < allCategory.length; i++) {
-        allCategory[i].classList.add('category-unselected')
-       }
+        for (var i = 0; i < allCategory.length; i++) {
+            allCategory[i].classList.add('category-unselected')
+        }
      filmCat.classList.remove('category-unselected')
      filmCat.classList.add('category-selected')
 })
 var geoCat = document.querySelector('#geography')
 geoCat.addEventListener('click', function(){
     category = "22"
-    for (var i = 0; i < allCategory.length; i++) {
-        allCategory[i].classList.add('category-unselected')
-       }
+        for (var i = 0; i < allCategory.length; i++) {
+            allCategory[i].classList.add('category-unselected')
+        }
      geoCat.classList.remove('category-unselected')
      geoCat.classList.add('category-selected')
 })
 var musicCat = document.querySelector('#music')
 musicCat.addEventListener('click', function(){
     category = "12"
-    for (var i = 0; i < allCategory.length; i++) {
-        allCategory[i].classList.add('category-unselected')
-       }
+        for (var i = 0; i < allCategory.length; i++) {
+            allCategory[i].classList.add('category-unselected')
+        }
      musicCat.classList.remove('category-unselected')
      musicCat.classList.add('category-selected')
 })
 var sportsCat = document.querySelector('#sports')
 sportsCat.addEventListener('click', function(){
     category = "21"
-    for (var i = 0; i < allCategory.length; i++) {
-        allCategory[i].classList.add('category-unselected')
-       }
+        for (var i = 0; i < allCategory.length; i++) {
+            allCategory[i].classList.add('category-unselected')
+        }
      sportsCat.classList.remove('category-unselected')
      sportsCat.classList.add('category-selected')
 })
 var tvCat = document.querySelector('#tv')
 tvCat.addEventListener('click', function(){
     category = "14"
-    for (var i = 0; i < allCategory.length; i++) {
-        allCategory[i].classList.add('category-unselected')
-       }
+        for (var i = 0; i < allCategory.length; i++) {
+            allCategory[i].classList.add('category-unselected')
+        }
      tvCat.classList.remove('category-unselected')
      tvCat.classList.add('category-selected')
 })
 var vehiclesCat = document.querySelector('#vehicles')
 vehiclesCat.addEventListener('click', function(){
     category = "28"
-    for (var i = 0; i < allCategory.length; i++) {
-        allCategory[i].classList.add('category-unselected')
-       }
+        for (var i = 0; i < allCategory.length; i++) {
+            allCategory[i].classList.add('category-unselected')
+        }
      vehiclesCat.classList.remove('category-unselected')
      vehiclesCat.classList.add('category-selected')
 })
@@ -132,9 +130,9 @@ randomCat.addEventListener('click', function(){
     var randomNumbers = ['27', '26', '11', '22', '12', '21', '14', '28']
     var randomNumber = randomNumbers[Math.floor(Math.random()*randomNumbers.length)];
     category = randomNumber
-    for (var i = 0; i < allCategory.length; i++) {
-        allCategory[i].classList.add('category-unselected')
-       }
+        for (var i = 0; i < allCategory.length; i++) {
+            allCategory[i].classList.add('category-unselected')
+        }
      randomCat.classList.remove('category-unselected')
      randomCat.classList.add('category-selected')
 })
@@ -158,7 +156,6 @@ startBtn.addEventListener('click', function(){
         modal.classList.add('close-modal')
 
         // append modal text
-
         var modalScore = document.createElement('h1')
         modalScore.innerHTML = 'Please select both a category and difficulty.'
 
@@ -214,7 +211,6 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
             modal.classList.add('modal')
     
             // append modal text
-    
             var modalScore = document.createElement('h1')
             modalScore.innerHTML = ' Congratulations! Perfect score of ' + points + '!'
             modal.appendChild(modalScore)
@@ -271,7 +267,6 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
     
             modalActionsContainer.appendChild(confirmButton)
             body.appendChild(modal)
-    
     
         }
 
@@ -336,10 +331,8 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
             else if(dataIndex === 10) {
                 var user = window.prompt('Congratulations! You have reached the maximum score of' + points + 'Please enter your name:')
 
-                    
-
-                    localStorage.setItem('playerScoreObj', JSON.stringify(savedScore))
-                    document.location.reload();
+                localStorage.setItem('playerScoreObj', JSON.stringify(savedScore))
+                document.location.reload();
             }
             else{
             
@@ -385,7 +378,7 @@ fetch('https://opentdb.com/api.php?amount=10&category=' + category + '&difficult
                 })
                 modalInputContainer.appendChild(modalInputArea)
 
-                //modal actions ie - confirm / cancel
+                // modal actions ie - confirm / cancel
                 var modalActionsContainer = document.createElement('div')
                 modalActionsContainer.classList.add('modal-actions')
                 modal.appendChild(modalActionsContainer)
